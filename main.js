@@ -1,32 +1,18 @@
 var $carImg = document.querySelector('.car-img');
 
-var direction = {
-  north: {
-    arrow: 'ArrowUp',
-    class: 'carImg up'
-  },
-  south: {
-    arrow: 'ArrowDown',
-    class: 'carImg down'
-  },
-  east: {
-    arrow: 'ArrowRight',
-    class: 'carImg right'
-  },
-  west: {
-    arrow: 'ArrowLeft',
-    class: 'carImg left'
-  }
+var data = {
+  direction: 'east'
 };
 
 document.addEventListener('keydown', function (event) {
 
-  if (event.key === direction.east.arrow) $carImg.className = direction.east.class;
+  if (event.key === 'ArrowUp') data.direction = 'north';
 
-  if (event.key === direction.west.arrow) $carImg.className = direction.west.class;
+  if (event.key === 'ArrowDown') data.direction = 'south';
 
-  if (event.key === direction.north.arrow) $carImg.className = direction.north.class;
+  if (event.key === 'ArrowLeft') data.direction = 'west';
 
-  if (event.key === direction.south.arrow) $carImg.className = direction.south.class;
+  if (event.key === 'ArrowRight') data.direction = 'east';
 
+  $carImg.className = 'car-img ' + data.direction;
 });

@@ -6,22 +6,22 @@ body {
   width: 9rem;
 }
 
-.right {
+.east {
   width: 9rem;
   transform: rotate(0deg);
 }
 
-.left {
+.west {
   width: 9rem;
   transform: rotate(180deg);
 }
 
-.up {
+.north {
   width: 9rem;
   transform: rotate(-90deg);
 }
 
-.down {
+.south {
   width: 9rem;
   transform: rotate(90deg);
 }
