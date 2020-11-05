@@ -5,3 +5,23 @@ body {
 .car-img {
   width: 9rem;
 }
+
+.right {
+  width: 9rem;
+  transform: rotate(0deg);
+}
+
+.left {
+  width: 9rem;
+  transform: rotate(180deg);
+}
+
+.up {
+  width: 9rem;
+  transform: rotate(-90deg);
+}
+
+.down {
+  width: 9rem;
+  transform: rotate(90deg);
+}
