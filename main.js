@@ -5,7 +5,8 @@ var data = {
   location: {
     x: 0,
     y: 0
-  }
+  },
+  on: false
 };
 
 document.addEventListener('keydown', function (event) {
@@ -20,12 +21,22 @@ document.addEventListener('keydown', function (event) {
 
   $carImg.className = 'car-img ' + data.direction;
 
-  if (event.key === ' ') {
-    setInterval(moveCar, 16);
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.key !== ' ') return;
+
+  if (data.on === false) {
+    intervalID = setInterval(moveCar, 16);
+    data.on = true;
+  } else {
+    clearInterval(intervalID);
+    data.on = false;
   }
 });
 
 function moveCar() {
+
   data.location.x = data.location.x + 7;
   $carImg.setAttribute('style', 'left:' + data.location.x + 'px');
 }
