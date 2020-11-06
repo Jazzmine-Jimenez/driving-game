@@ -72,12 +72,10 @@ function moveCar(model) {
   }
   if (model === 'east') {
     data.location.x = data.location.x + 7;
-    console.log('going east(right)');
     $carImg.setAttribute('style', 'left:' + data.location.x + 'px');
   }
   if (model === 'west') {
     data.location.x = data.location.x - 7;
-    console.log('going west(left)');
     $carImg.setAttribute('style', 'left:' + data.location.x + 'px');
   }
 
