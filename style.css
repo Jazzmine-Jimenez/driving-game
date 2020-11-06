@@ -4,6 +4,7 @@ body {
 
 .car-img {
   width: 9rem;
+  position: absolute;
 }
 
 .east {
