@@ -64,19 +64,19 @@ function moveCar(model) {
 
   if (model === 'north') {
     data.location.y = data.location.y - 7;
-    $carImg.setAttribute('style', 'top:' + data.location.y + 'px');
+    $carImg.setAttribute('style', 'top:' + data.location.y + 'px; left:' + data.location.x + 'px;');
   }
   if (model === 'south') {
     data.location.y = data.location.y + 7;
-    $carImg.setAttribute('style', 'top:' + data.location.y + 'px');
+    $carImg.setAttribute('style', 'top:' + data.location.y + 'px; left:' + data.location.x + 'px;');
   }
   if (model === 'east') {
     data.location.x = data.location.x + 7;
-    $carImg.setAttribute('style', 'left:' + data.location.x + 'px');
+    $carImg.setAttribute('style', 'left:' + data.location.x + 'px; top:' + data.location.y + 'px;');
   }
   if (model === 'west') {
     data.location.x = data.location.x - 7;
-    $carImg.setAttribute('style', 'left:' + data.location.x + 'px');
+    $carImg.setAttribute('style', 'left:' + data.location.x + 'px; top:' + data.location.y + 'px;');
   }
 
 }
