@@ -11,23 +11,48 @@ var data = {
 
 document.addEventListener('keydown', function (event) {
 
-  if (event.key === 'ArrowUp') data.direction = 'north';
+  if (event.key === 'ArrowUp') {
+    data.direction = 'north';
+    $carImg.className = 'car-img ' + data.direction;
+    if (data.on === true) {
+      clearInterval(intervalID);
+      intervalID = setInterval(moveCar, 16, data.direction);
+    }
+  }
 
-  if (event.key === 'ArrowDown') data.direction = 'south';
+  if (event.key === 'ArrowDown') {
+    data.direction = 'south';
+    $carImg.className = 'car-img ' + data.direction;
+    if (data.on === true) {
+      clearInterval(intervalID);
+      intervalID = setInterval(moveCar, 16, data.direction);
+    }
+  }
 
-  if (event.key === 'ArrowLeft') data.direction = 'west';
+  if (event.key === 'ArrowLeft') {
+    data.direction = 'west';
+    $carImg.className = 'car-img ' + data.direction;
+    if (data.on === true) {
+      clearInterval(intervalID);
+      intervalID = setInterval(moveCar, 16, data.direction);
+    }
+  }
 
-  if (event.key === 'ArrowRight') data.direction = 'east';
-
-  $carImg.className = 'car-img ' + data.direction;
-
+  if (event.key === 'ArrowRight') {
+    data.direction = 'east';
+    $carImg.className = 'car-img ' + data.direction;
+    if (data.on === true) {
+      clearInterval(intervalID);
+      intervalID = setInterval(moveCar, 16, data.direction);
+    }
+  }
 });
 
 document.addEventListener('keydown', function (event) {
   if (event.key !== ' ') return;
 
   if (data.on === false) {
-    intervalID = setInterval(moveCar, 16);
+    intervalID = setInterval(moveCar, 16, data.direction);
     data.on = true;
   } else {
     clearInterval(intervalID);
@@ -35,8 +60,23 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
-function moveCar() {
+function moveCar(model) {
 
-  data.location.x = data.location.x + 7;
-  $carImg.setAttribute('style', 'left:' + data.location.x + 'px');
+  if (model === 'north') {
+    data.location.y = data.location.y - 7;
+    $carImg.setAttribute('style', 'top:' + data.location.y + 'px; left:' + data.location.x + 'px;');
+  }
+  if (model === 'south') {
+    data.location.y = data.location.y + 7;
+    $carImg.setAttribute('style', 'top:' + data.location.y + 'px; left:' + data.location.x + 'px;');
+  }
+  if (model === 'east') {
+    data.location.x = data.location.x + 7;
+    $carImg.setAttribute('style', 'left:' + data.location.x + 'px; top:' + data.location.y + 'px;');
+  }
+  if (model === 'west') {
+    data.location.x = data.location.x - 7;
+    $carImg.setAttribute('style', 'left:' + data.location.x + 'px; top:' + data.location.y + 'px;');
+  }
+
 }
